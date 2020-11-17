@@ -1,0 +1,15 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package org.joanamcsp.primes;
+
+message GetPrimesRequest {
+  int32 bound = 1;
+}
+
+message GetPrimesResponse {
+  int32 prime = 1;
+}
+
+service PrimeService {
+  rpc getPrimes(GetPrimesRequest) returns (stream GetPrimesResponse);
+}
