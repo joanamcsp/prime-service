@@ -11,6 +11,7 @@
 
   <artifactId>proxy-server</artifactId>
   <properties>
+    <start-class>org.joanamcsp.ProxyApplication</start-class>
     <springweb.version>5.2.9.RELEASE</springweb.version>
     <jackson.version>2.11.3</jackson.version>
   </properties>
@@ -36,5 +37,22 @@
       <version>${jackson.version}</version>
     </dependency>
   </dependencies>
+
+  <build>
+    <finalName>${project.artifactId}</finalName>
+      <plugins>
+        <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <executions>
+            <execution>
+              <configuration>
+                <mainClass>${start-class}</mainClass>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+  </build>
 
 </project>
