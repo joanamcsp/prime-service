@@ -15,7 +15,8 @@ public class PrimeClient {
     private ManagedChannel channel;
 
     public PrimeClient() {
-        channel = ManagedChannelBuilder.forAddress("localhost", 5000)
+        channel = ManagedChannelBuilder
+                .forAddress("prime-number-server", 5000)
                 .usePlaintext()
                 .build();
         stub = PrimeServiceGrpc.newBlockingStub(channel);

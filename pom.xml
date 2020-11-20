@@ -18,14 +18,16 @@
   <properties>
     <maven.compiler.source>11</maven.compiler.source>
     <maven.compiler.target>11</maven.compiler.target>
-    <junit.version>4.12</junit.version>
     <mockito.version>3.6.0</mockito.version>
+    <junit.version>4.12</junit.version>
+    <maven-failsafe.version>2.22.2</maven-failsafe.version>
   </properties>
 
   <modules>
     <module>protobuf</module>
     <module>prime-number-server</module>
     <module>proxy-server</module>
+    <module>component-tests</module>
   </modules>
 
   <dependencies>
@@ -42,5 +44,22 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>${maven-failsafe.version}</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+    </plugins>
+  </build>
 
 </project>
