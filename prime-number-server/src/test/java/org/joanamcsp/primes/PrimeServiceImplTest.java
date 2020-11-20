@@ -32,8 +32,7 @@ public class PrimeServiceImplTest {
     public void setUp() throws Exception {
         serverName = InProcessServerBuilder.generateName();
         inProcessChannel = InProcessChannelBuilder.forName(serverName).directExecutor().build();
-        grpcCleanup.register(InProcessServerBuilder.forName(serverName).directExecutor().addService(
-                new PrimeServiceImpl()).build().start());
+        grpcCleanup.register(InProcessServerBuilder.forName(serverName).directExecutor().addService(new PrimeServiceImpl()).build().start());
     }
 
     @Test

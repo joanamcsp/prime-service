@@ -2,7 +2,6 @@ package org.joanamcsp.primes;
 
 import io.grpc.Status;
 import io.grpc.stub.StreamObserver;
-import java.util.stream.IntStream;
 import org.joanamcsp.primes.PrimeServiceGrpc.PrimeServiceImplBase;
 
 public class PrimeServiceImpl extends PrimeServiceImplBase {
@@ -14,8 +13,7 @@ public class PrimeServiceImpl extends PrimeServiceImplBase {
                     .withDescription("Bound cannot be less than 2").asRuntimeException());
         }
 
-       IntStream.rangeClosed(2, request.getBound())
-                .filter(PrimeUtils::isPrime)
+       Primes.getPrimes(request.getBound())
                 .forEach(prime -> responseObserver.onNext(GetPrimesResponse.newBuilder()
                         .setPrime(prime).build()));
 
