@@ -27,6 +27,6 @@ public class PrimesTest {
 
     @Test
     public void getPrimes_give_bound_is_greater_than_max_bound_returns_stream_of_values_up_to_max_bound() {
-        assertEquals( Primes.getPrimes(MAX_BOUND).boxed().collect(Collectors.toList()), Primes.getPrimes(300_000).boxed().collect(Collectors.toList()));
+        assertEquals(Primes.getPrimes(MAX_BOUND).boxed().collect(Collectors.toList()), Primes.getPrimes(300_000).boxed().collect(Collectors.toList()));
     }
 }

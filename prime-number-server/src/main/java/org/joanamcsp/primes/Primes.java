@@ -37,7 +37,7 @@ public class Primes {
 
     private static int getNextPrime(BitSet primes, int prime, int max) {
         int next = prime + 1;
-        while(next < max - 1 && !primes.get(next)) {
+        while (next < max - 1 && !primes.get(next)) {
             next++;
         }
         return next;
